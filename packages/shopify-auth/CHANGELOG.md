@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.0.1
+
+### Patch Changes
+
+- 7d3a44e: Change user data
+
 ## 2.0.0
 
 ### Major Changes
