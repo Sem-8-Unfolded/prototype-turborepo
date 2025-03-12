@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.0.3
+
+### Patch Changes
+
+- 6555cf3: Yet again another data change
+
 ## 2.0.2
 
 ### Patch Changes
