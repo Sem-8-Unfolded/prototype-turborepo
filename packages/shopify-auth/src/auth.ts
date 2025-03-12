@@ -35,10 +35,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 console.log("Credentials within package:", credentials);
 
                 const user = {
-                    id: "1",
-                    name: "Mr. Bzbz",
+                    id: "38",
+                    name: "Gökay",
                     email: credentials.email as string,
-                    shopifyToken: "1234567890"
+                    shopifyToken: "32j5hb3nmib4n43j5y09fgbmv0434bfg09b8d8d9b9if9ibf"
                 }
 
                 return user;
