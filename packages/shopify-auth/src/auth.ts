@@ -36,6 +36,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
                 const testvar = 1;
 
+                const testVar = 2;
+
                 const user = {
                     id: "478568",
                     name: "Bzbz",
