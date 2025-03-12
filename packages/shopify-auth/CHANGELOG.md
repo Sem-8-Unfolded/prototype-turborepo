@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.0.0
+
+### Major Changes
+
+- 613670a: Changed hard-coded user data
+
 ## 1.0.0
 
 ### Major Changes
