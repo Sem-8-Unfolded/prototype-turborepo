@@ -1,0 +1,27 @@
+{
+    "name": "@repo/shopify-auth",
+    "private": true,
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "tsc"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "dependencies": {
+    },
+    "peerDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "next": "15.2.0-canary.67",
+        "next-auth": "5.0.0-beta.25"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "typescript": "latest"
+    }
+}

@@ -2,11 +2,33 @@
 
 import Image from "next/image";
 import Button from "@repo/ui/button";
+import { signIn } from "@repo/shopify-auth";
 
 export default function Home() {
   function alertMessage() {
     alert("Hello, world!");
   }
+
+  const handleSubmit = async () => {
+    const email = "bzbz@bzbz.bzbz";
+    const password = "bzbzbzbz";
+
+    console.log('Email:', email);
+    console.log('Password:', password);
+
+    try {
+      const response = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+      console.log({ response });
+
+      console.log("Login Successful", response);
+    } catch (error: any) {
+      console.error("Login Failed:", error);
+    }
+  };
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -56,7 +78,7 @@ export default function Home() {
           </a>
         </div>
 
-        <Button onClick={alertMessage} className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44" />
+        <Button onClick={() => handleSubmit()} content="Sign in" className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44" />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
