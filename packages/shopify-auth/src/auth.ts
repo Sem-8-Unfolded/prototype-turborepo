@@ -36,7 +36,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
                 const user = {
                     id: "478568",
-                    name: "Gökay",
+                    name: "Bzbz",
                     email: credentials.email as string,
                     shopifyToken: "32j5hb3nmib4n43j5y09fgbmv0434bfg09b8d8d9b9if9ibf"
                 }
