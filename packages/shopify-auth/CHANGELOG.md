@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.0.2
+
+### Patch Changes
+
+- 618e187: Change the data provided for the session
+
 ## 2.0.1
 
 ### Patch Changes
