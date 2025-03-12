@@ -1,6 +1,6 @@
 {
     "name": "@repo/shopify-auth",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "tsc --watch",
@@ -12,8 +12,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "dependencies": {
-    },
+    "dependencies": {},
     "peerDependencies": {
         "@repo/typescript-config": "workspace:*",
         "next": "15.2.0-canary.67",
