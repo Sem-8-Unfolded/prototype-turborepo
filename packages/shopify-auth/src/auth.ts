@@ -34,6 +34,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authorize: async (credentials) => {
                 console.log("Credentials within package:", credentials);
 
+                const testvar = 1;
+
                 const user = {
                     id: "478568",
                     name: "Bzbz",
