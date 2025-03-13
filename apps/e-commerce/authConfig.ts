@@ -1,9 +1,10 @@
-import { shopifyAuth } from "@repo/shopify-auth/auth";
+import { shopifyAuth } from "@repo/shopify-auth";
 import Credentials from "next-auth/providers/credentials";
 import { NextAuthConfig, DefaultSession } from "next-auth";
 
 declare module "next-auth" {
     interface Session {
+        // @ts-ignore
         user: {
             shopifyToken: string;
             customToken?: string;
@@ -25,7 +26,7 @@ declare module "next-auth" {
     }
 }
 
-const customAuthOptions: NextAuthConfig = {
+const customAuthOptions: Partial<NextAuthConfig> = {
     callbacks: {
         jwt({ token, user }) {
             if (user) {
@@ -78,6 +79,6 @@ const customAuthOptions: NextAuthConfig = {
     ],
 };
 
-const { signIn, handlers }: { signIn: any, handlers: any } = shopifyAuth(customAuthOptions);
+const { handlers, signIn }: { handlers: any, signIn: any } = shopifyAuth(customAuthOptions);
 
-export { signIn, handlers };
+export { handlers, signIn };
