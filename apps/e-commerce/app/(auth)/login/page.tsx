@@ -1,8 +1,8 @@
 "use client";
 
 import { SessionProvider } from "@repo/shopify-auth/client";
-// import { signIn } from "@repo/shopify-auth/client";
-import SessionCheck from "../../../components/session";
+import { signIn } from "@repo/shopify-auth/client";
+import SessionCheck from "@/components/session";
 import Button from "@repo/ui/button";
 
 export default function LoginPage() {
@@ -15,25 +15,26 @@ export default function LoginPage() {
         console.log('Password:', password);
 
         try {
-            console.log("Server login");
+            // console.log("Server login");
             
-            const response = await fetch("/api/auth/signin", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const data = await response.json();
-            console.log("Successful signin data:", data);
-
-            // console.log("client login");
-            // signIn("credentials", {
-            //     email,
-            //     password,
-            //     redirect: false,
+            // const response = await fetch("/api/auth/signin", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({ email, password }),
             // });
+
+            // const data = await response.json();
+            // console.log("Successful signin data:", data);
+
+            console.log("client login");
+            signIn("credentials", {
+                email,
+                password,
+                redirect: true,
+                redirectTo: "/",
+            });
 
         } catch (error: any) {
             console.error("Login Failed:", error);

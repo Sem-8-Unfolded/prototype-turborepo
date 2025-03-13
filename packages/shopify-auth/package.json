@@ -1,26 +1,42 @@
 {
-    "name": "@repo/shopify-auth",
-    "version": "2.1.1",
-    "private": true,
-    "scripts": {
-        "dev": "tsc --watch",
-        "build": "tsc"
+  "name": "@repo/shopify-auth",
+  "version": "2.1.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsup src/shopifyAuth.ts src/client/index.ts src/server/index.ts --format cjs,esm --dts"
+  },
+  "exports": {
+    ".": {
+      "main": "./dist/shopifyAuth.js",
+      "module": "./dist/shopifyAuth.mjs",
+      "types": "./dist/shopifyAuth.d.ts"
     },
-    "exports": {
-        ".": "./src/shopifyAuth.ts",
-        "./client": "./src/client/index.ts",
-        "./server": "./src/server/index.ts"
+    "./client": {
+      "main": "./dist/client/index.js",
+      "module": "./dist/client/index.mjs",
+      "types": "./dist/client/index.d.ts"
     },
-    "dependencies": {},
-    "peerDependencies": {
-        "@repo/typescript-config": "workspace:*",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "next": "15.2.1",
-        "next-auth": "5.0.0-beta.25"
-    },
-    "devDependencies": {
-        "@repo/typescript-config": "workspace:*",
-        "typescript": "latest"
+    "./server": {
+      "main": "./dist/server/index.js",
+      "module": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
     }
+  },
+  "peerDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "next": "15.2.1",
+    "next-auth": "5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.13.10",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "tsup": "^8.4.0"
+  }
 }
