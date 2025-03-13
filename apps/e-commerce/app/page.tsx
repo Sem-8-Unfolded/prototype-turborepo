@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Button from "@repo/ui/button";
-import { signIn } from "@repo/shopify-auth";
+import { signIn } from "@repo/shopify-auth/auth";
 
 export default function Home() {
   function alertMessage() {

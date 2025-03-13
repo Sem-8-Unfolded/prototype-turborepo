@@ -1,7 +1,31 @@
-import { shopifyAuth, getAuthFunctions } from "@repo/shopify-auth/auth";
+import { shopifyAuth } from "@repo/shopify-auth/auth";
 import Credentials from "next-auth/providers/credentials";
+import { NextAuthConfig, DefaultSession } from "next-auth";
 
-const customAuthOptions: any = {
+declare module "next-auth" {
+    interface Session {
+        user: {
+            shopifyToken: string;
+            customToken?: string;
+            address?: {
+                street: string;
+                city: string;
+                country: string;
+            };
+        } & DefaultSession["user"];
+    }
+    interface User {
+        shopifyToken: string;
+        customToken?: string;
+        address?: {
+            street: string;
+            city: string;
+            country: string;
+        };
+    }
+}
+
+const customAuthOptions: NextAuthConfig = {
     callbacks: {
         jwt({ token, user }) {
             if (user) {
@@ -11,15 +35,18 @@ const customAuthOptions: any = {
                     token.address = user.address;
                 }
             }
+
             return token;
         },
         session({ session, token }) {
             session.user.customToken = token.customToken as string;
+            session.user.shopifyToken = token.shopifyToken as string;
             session.user.address = token.address as {
                 street: string;
                 city: string;
                 country: string;
             };
+
             return session;
         },
     },
@@ -34,7 +61,7 @@ const customAuthOptions: any = {
 
                 const user = {
                     id: "999999",
-                    name: "Grr Grrrr",
+                    name: "VVVVV",
                     email: credentials.email as string,
                     shopifyToken: "bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
                     customToken: "vfdvdvd",
@@ -51,8 +78,6 @@ const customAuthOptions: any = {
     ],
 };
 
-shopifyAuth(customAuthOptions);
+const { signIn, handlers }: { signIn: any, handlers: any } = shopifyAuth(customAuthOptions);
 
-const { signIn } = getAuthFunctions();
-
-export { signIn };
+export { signIn, handlers };
