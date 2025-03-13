@@ -1,4 +1,4 @@
-import NextAuth, { DefaultSession } from "next-auth";
+import NextAuth, { DefaultSession, NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 declare module "next-auth" {
@@ -12,7 +12,7 @@ declare module "next-auth" {
     }
 }
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+const defaultOptions: NextAuthConfig = {
     callbacks: {
         jwt({ token, user }) {
             if (user) {
@@ -34,10 +34,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authorize: async (credentials) => {
                 console.log("Credentials within package:", credentials);
 
-                const testvar = 1;
-
-                const testVar = 2;
-
                 const user = {
                     id: "478568",
                     name: "Bzbz",
@@ -49,4 +45,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
         })
     ],
-})
+};
+
+export function shopifyAuth(customOptions: Partial<NextAuthConfig> = {}) {
+    return NextAuth({
+        ...customOptions,
+        callbacks: customOptions.callbacks || defaultOptions.callbacks,
+        providers: customOptions.providers || defaultOptions.providers,
+    });
+}
+
+export const { handlers, signIn, signOut, auth } = shopifyAuth(defaultOptions);

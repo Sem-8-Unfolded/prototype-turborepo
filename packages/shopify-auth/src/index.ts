@@ -1,4 +1,4 @@
 import { signIn, signOut, useSession, SessionProvider } from "next-auth/react";
-import { handlers, auth } from "./auth";
+import { handlers, auth, shopifyAuth } from "./auth";
 
-export { signIn, signOut, useSession, SessionProvider, auth, handlers };
+export { signIn, signOut, useSession, SessionProvider, auth, shopifyAuth, handlers };

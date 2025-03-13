@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from "@repo/shopify-auth";
+import { useSession } from "@repo/shopify-auth/auth";
 
 export default function SessionCheck() {
     const { data: session } = useSession()

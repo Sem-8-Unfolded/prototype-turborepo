@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from '@repo/shopify-auth';
+import { auth } from '@repo/shopify-auth/auth';
 
 export default async function Navbar() {
     const session = await auth();
