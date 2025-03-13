@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.1.0
+
+### Minor Changes
+
+- 16716b3: Added support for custom configuration
+
 ## 2.0.4
 
 ### Patch Changes
