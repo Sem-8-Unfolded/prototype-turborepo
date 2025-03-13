@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.2.0
+
+### Minor Changes
+
+- 8920c0a: Added Playwright tests
+
 ## 2.1.1
 
 ### Patch Changes
