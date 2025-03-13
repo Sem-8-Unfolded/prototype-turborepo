@@ -1,5 +1,11 @@
 # @repo/shopify-auth
 
+## 2.1.1
+
+### Patch Changes
+
+- e3e780e: Divided exported functions over /server, /client and root
+
 ## 2.1.0
 
 ### Minor Changes
