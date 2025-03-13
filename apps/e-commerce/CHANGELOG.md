@@ -1,5 +1,12 @@
 # e-commerce
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [e3e780e]
+  - @repo/shopify-auth@2.1.1
+
 ## 0.0.7
 
 ### Patch Changes
